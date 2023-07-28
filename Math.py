@@ -47,7 +47,7 @@ def create_pdf_with_problems(file_path, num_problems):
 if __name__ == "__main__":
     # input_date_str = input("Enter the start date (YYYY-MM-DD): ")
     input_date_str = "2023-07-28"
-    num_files_to_generate = 5  # You can change this to generate more or fewer files
+    num_files_to_generate = 100  # You can change this to generate more or fewer files
     num_problems_per_file = 120  # Three columns of ten problems each
 
     try:
@@ -55,7 +55,8 @@ if __name__ == "__main__":
         for i in range(num_files_to_generate):
             output_date = input_date + timedelta(weeks=i)
             output_date_str = output_date.strftime("%Y-%m-%d")
-            output_file = f"{output_date_str}.pdf"
+            # output_file = f"{'output_date_str'}.pdf"
+            output_file = f"{'set' + str(i+1)}.pdf"
             create_pdf_with_problems(output_file, num_problems_per_file)
             print(f"PDF file '{output_file}' created with {num_problems_per_file} random multiplication and division problems for {output_date_str}.")
     except ValueError:
